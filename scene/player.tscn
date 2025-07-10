@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmo6nynl28bb1"]
+
+[ext_resource type="Script" uid="uid://tvtqd33esxec" path="res://scripts/entity/player/Player.cs" id="1_hjaqi"]
+[ext_resource type="SpriteFrames" uid="uid://c22gdlhpwg3vl" path="res://assets/entity/player/Sword.aseprite" id="1_xo3ru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8tjs"]
+radius = 8.06226
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(8.2, 8.44)
+script = ExtResource("1_hjaqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.96, 0.32)
+shape = SubResource("CircleShape2D_r8tjs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -10)
+sprite_frames = ExtResource("1_xo3ru")
+animation = &"Attack"

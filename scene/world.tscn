@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://yngbnyd6q0wq"]
+
+[ext_resource type="PackedScene" uid="uid://dmo6nynl28bb1" path="res://scene/player.tscn" id="1_pjass"]
+[ext_resource type="Script" uid="uid://c628guim5h24l" path="res://scripts/terrain/procedural/Terrain.cs" id="2_w4qq1"]
+[ext_resource type="Texture2D" uid="uid://h6qjpcudng5o" path="res://assets/terrain/ground_tiles/grass/grass_tile.png" id="3_m5mgf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emkrx"]
+texture = ExtResource("3_m5mgf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pjass"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_emkrx")
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_pjass")]
+
+[node name="Terrain" type="Node2D" parent="."]
+script = ExtResource("2_w4qq1")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Terrain"]
+tile_set = SubResource("TileSet_pjass")
